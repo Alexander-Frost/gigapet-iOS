@@ -69,8 +69,11 @@ class NetworkController {
         
         //create urlRequest
         var request = URLRequest(url: url)
-        request.httpMethod = HTTPMethod.post.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+      // let postString = ["userName": userName!, "userPassword": userPassword!] as [String: String]
         
         let je = JSONEncoder()
         do {

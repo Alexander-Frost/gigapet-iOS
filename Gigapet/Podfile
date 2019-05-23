@@ -6,7 +6,7 @@ target 'Gigapet' do
   use_frameworks!
 
   # Pods for Gigapet
-  #pod 'JSONWebToken'
-  pod 'SwiftyJWT'
-  
+  pod 'SwiftKeychainWrapper'
+
+
 end

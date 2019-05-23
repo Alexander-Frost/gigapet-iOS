@@ -7,49 +7,100 @@
 //
 
 import UIKit
-import SwiftyJWT
+import SwiftKeychainWrapper
+//import SwiftyJWT
 
 class LoginViewController: UIViewController {
-
+    
     // MARK: - Constants
     
     let nc = NetworkController()
-
+    
     // MARK: - Outlets
-
+    
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    
+    private let baseURL = URL(string: "https://giga-back-end.herokuapp.com/api")!
     // MARK: - Actions
-
+    
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         // Validate required fields are not empty
+        let userName = usernameTextField.text
+        let userPassword = passwordTextField.text
+        
         if (usernameTextField.text?.isEmpty)! ||
             (passwordTextField.text?.isEmpty)! {
             // Display Alert message and return
-            displayMessage(userMessage: "All fields are required to be filled in")
+            return
+        }
+        let url = baseURL.appendingPathComponent("users/login")
+        var request = URLRequest(url:url)
+        request.httpMethod = "POST"// Compose a query string
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let postString = ["name": userName!, "password": userPassword!] as [String: String]
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
             return
         }
         
-        // Not correct
-        let user = User(name: usernameTextField.text!, password: passwordTextField.text!, email: "NA")
-        
-        nc.logIn(with: user) { (error) in
-            if let error = error {
-                print("HERE", error)
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil {
+                print("error=\(String(describing: error))")
                 return
             }
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "Login Segue", sender: self)
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                
+                if let parseJSON = json {
+                    
+                    if parseJSON["errorMessageKey"] != nil {
+                        return
+                    }
+                    
+                    // Now we can access value of First Name by its key
+                    let accessToken = parseJSON["token"] as? String
+                    let userId = parseJSON["id"] as? Int64
+                    print("Access token: \(String(describing: accessToken!))")
+                    
+                    let saveAccesssToken: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
+                    let saveUserId: Bool = KeychainWrapper.standard.set(String(describing:userId!), forKey: "userId")
+                    
+                    print("The access token save result: \(saveAccesssToken)")
+                    print("The userId save result \(saveUserId)")
+                    
+                    if (accessToken?.isEmpty)! {
+                        // Display an Alert dialog with a friendly error message
+                        print("no issued token")
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "Login Segue", sender: self)
+                    }
+                }
+            } catch {
+                
+                print("\(error)")
+                return
+                
             }
+            
+            
+            
         }
+        task.resume()
+        
     }
     
     // MARK: - VC Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -59,9 +110,9 @@ class LoginViewController: UIViewController {
             guard let destinationVC = segue.destination as? MainPageViewController else { return }
         }
     }
-
+    
     // MARK: - Functions
-
+    
     func displayMessage(userMessage:String) -> Void {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: "Alert", message: userMessage, preferredStyle: .alert)
@@ -76,4 +127,11 @@ class LoginViewController: UIViewController {
             self.present(alertController, animated: true, completion:nil)
         }
     }
+    
+  
+    
+    
 }
+
+
+

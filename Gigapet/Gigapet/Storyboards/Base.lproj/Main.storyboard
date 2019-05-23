@@ -314,7 +314,7 @@
         <!--Home-->
         <scene sceneID="2EI-NJ-04D">
             <objects>
-                <viewController title="Home" id="xHd-5u-25v" customClass="MainPageViewController" customModule="Gigapet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPageViewController" title="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xHd-5u-25v" customClass="MainPageViewController" customModule="Gigapet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cQ7-08-QAj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

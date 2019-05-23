@@ -1,20 +1,16 @@
 PODS:
-  - SwiftyCrypto (0.0.1)
-  - SwiftyJWT (0.0.3):
-    - SwiftyCrypto (~> 0.0.1)
+  - SwiftKeychainWrapper (3.3.0)
 
 DEPENDENCIES:
-  - SwiftyJWT
+  - SwiftKeychainWrapper
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - SwiftyCrypto
-    - SwiftyJWT
+    - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
-  SwiftyCrypto: ab59cdb153a7ca99b657fa8d9ebd2ebbd7694bbe
-  SwiftyJWT: e46e8457138c6567a1a9ff05a6efc8ef678c1187
+  SwiftKeychainWrapper: ef5ad793bc0e08e24a5913f28345b8f7bc8e4123
 
-PODFILE CHECKSUM: bd6897c0d7b563ca0fd6bacef13eac571056cf55
+PODFILE CHECKSUM: 22fd1b43e6788e9474aec8e58ae64899a0239d2b
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.0
