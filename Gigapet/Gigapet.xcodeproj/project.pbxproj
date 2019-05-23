@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		0F6C6682DA1DC311B14D3655 /* Pods_Gigapet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1228E25B748404596C062673 /* Pods_Gigapet.framework */; };
+=======
+		31F4890651B893067908666F /* Pods_Gigapet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009A3B8E1C5AA79E6E27D112 /* Pods_Gigapet.framework */; };
+>>>>>>> 8cf8253b1dd38026f48ae00e136dcbb33df2d3ee
 		FA07B85F2295BC1C004D6B6E /* AddFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07B85E2295BC1C004D6B6E /* AddFoodViewController.swift */; };
 		FA07B8612295BD66004D6B6E /* AddChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07B8602295BD66004D6B6E /* AddChildViewController.swift */; };
 		FA07B8632295C300004D6B6E /* AppPresets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07B8622295C300004D6B6E /* AppPresets.swift */; };
@@ -36,9 +40,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		1228E25B748404596C062673 /* Pods_Gigapet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gigapet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32453DF3895B2935A376D979 /* Pods-Gigapet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigapet.debug.xcconfig"; path = "Target Support Files/Pods-Gigapet/Pods-Gigapet.debug.xcconfig"; sourceTree = "<group>"; };
 		85AB6421557872D70E841816 /* Pods-Gigapet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigapet.release.xcconfig"; path = "Target Support Files/Pods-Gigapet/Pods-Gigapet.release.xcconfig"; sourceTree = "<group>"; };
+=======
+		009A3B8E1C5AA79E6E27D112 /* Pods_Gigapet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gigapet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9F28D0BB3F20DCB9EAE52A4 /* Pods-Gigapet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigapet.debug.xcconfig"; path = "Target Support Files/Pods-Gigapet/Pods-Gigapet.debug.xcconfig"; sourceTree = "<group>"; };
+		F8F0994D4EE0ABB4CBDC7825 /* Pods-Gigapet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gigapet.release.xcconfig"; path = "Target Support Files/Pods-Gigapet/Pods-Gigapet.release.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> 8cf8253b1dd38026f48ae00e136dcbb33df2d3ee
 		FA07B85E2295BC1C004D6B6E /* AddFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewController.swift; sourceTree = "<group>"; };
 		FA07B8602295BD66004D6B6E /* AddChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildViewController.swift; sourceTree = "<group>"; };
 		FA07B8622295C300004D6B6E /* AppPresets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresets.swift; sourceTree = "<group>"; };
@@ -73,7 +83,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				0F6C6682DA1DC311B14D3655 /* Pods_Gigapet.framework in Frameworks */,
+=======
+				31F4890651B893067908666F /* Pods_Gigapet.framework in Frameworks */,
+>>>>>>> 8cf8253b1dd38026f48ae00e136dcbb33df2d3ee
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +97,11 @@
 		0696A9DD57918BFE07E009D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				1228E25B748404596C062673 /* Pods_Gigapet.framework */,
+=======
+				009A3B8E1C5AA79E6E27D112 /* Pods_Gigapet.framework */,
+>>>>>>> 8cf8253b1dd38026f48ae00e136dcbb33df2d3ee
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -91,8 +109,13 @@
 		E2216E4FACE1E9B2DAB086B4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				32453DF3895B2935A376D979 /* Pods-Gigapet.debug.xcconfig */,
 				85AB6421557872D70E841816 /* Pods-Gigapet.release.xcconfig */,
+=======
+				C9F28D0BB3F20DCB9EAE52A4 /* Pods-Gigapet.debug.xcconfig */,
+				F8F0994D4EE0ABB4CBDC7825 /* Pods-Gigapet.release.xcconfig */,
+>>>>>>> 8cf8253b1dd38026f48ae00e136dcbb33df2d3ee
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -499,7 +522,11 @@
 		};
 		FA3EF5CF22932F7C00168841 /* Debug */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 32453DF3895B2935A376D979 /* Pods-Gigapet.debug.xcconfig */;
+=======
+			baseConfigurationReference = C9F28D0BB3F20DCB9EAE52A4 /* Pods-Gigapet.debug.xcconfig */;
+>>>>>>> 8cf8253b1dd38026f48ae00e136dcbb33df2d3ee
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -518,7 +545,11 @@
 		};
 		FA3EF5D022932F7C00168841 /* Release */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 85AB6421557872D70E841816 /* Pods-Gigapet.release.xcconfig */;
+=======
+			baseConfigurationReference = F8F0994D4EE0ABB4CBDC7825 /* Pods-Gigapet.release.xcconfig */;
+>>>>>>> 8cf8253b1dd38026f48ae00e136dcbb33df2d3ee
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

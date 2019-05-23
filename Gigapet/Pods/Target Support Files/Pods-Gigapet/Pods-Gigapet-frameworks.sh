@@ -94,7 +94,11 @@ install_dsym() {
     binary="${DERIVED_FILES_DIR}/${basename}.framework.dSYM/Contents/Resources/DWARF/${basename}"
 
     # Strip invalid architectures so "fat" simulator / device frameworks work on device
+<<<<<<< HEAD
     if [[ "$(file "$binary")" == *"Mach-O dSYM companion"* ]]; then
+=======
+    if [[ "$(file "$binary")" == *"Mach-O "*"dSYM companion"* ]]; then
+>>>>>>> 8cf8253b1dd38026f48ae00e136dcbb33df2d3ee
       strip_invalid_archs "$binary"
     fi
 
@@ -109,6 +113,17 @@ install_dsym() {
   fi
 }
 
+<<<<<<< HEAD
+=======
+# Copies the bcsymbolmap files of a vendored framework
+install_bcsymbolmap() {
+    local bcsymbolmap_path="$1"
+    local destination="${BUILT_PRODUCTS_DIR}"
+    echo "rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${bcsymbolmap_path}" "${destination}""
+    rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${bcsymbolmap_path}" "${destination}"
+}
+
+>>>>>>> 8cf8253b1dd38026f48ae00e136dcbb33df2d3ee
 # Signs a framework with the provided identity
 code_sign_if_enabled() {
   if [ -n "${EXPANDED_CODE_SIGN_IDENTITY:-}" -a "${CODE_SIGNING_REQUIRED:-}" != "NO" -a "${CODE_SIGNING_ALLOWED}" != "NO" ]; then
@@ -153,12 +168,19 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+<<<<<<< HEAD
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyCrypto/SwiftyCrypto.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJWT/SwiftyJWT.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyCrypto/SwiftyCrypto.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJWT/SwiftyJWT.framework"
+=======
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework"
+>>>>>>> 8cf8253b1dd38026f48ae00e136dcbb33df2d3ee
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
